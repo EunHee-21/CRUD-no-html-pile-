@@ -20,6 +20,12 @@ public class ArticleForm {
 
     }
 
+    // 내용을 재작성!
+    public void rewrite(String title, String content) {
+        this.title = title;
+        this.content = content;
+    }
+
     // 생성자: entity 객체를 form으로 변환!
     public ArticleForm(Article entity) {
         this.id = entity.getId();

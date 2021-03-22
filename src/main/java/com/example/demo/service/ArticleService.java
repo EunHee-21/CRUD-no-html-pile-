@@ -13,6 +13,7 @@ import javax.transaction.Transactional;
 @RequiredArgsConstructor
 @Service // 서비스 객체 선언! 서비스란?
 public class ArticleService {
+
     private final ArticleRepository articleRepository;
 
     @Transactional // 트랜잭션 처리! 트랜잭션이란?
@@ -35,6 +36,7 @@ public class ArticleService {
         return saved;
     }
 
+    @Transactional
     public Long destroy(Long id) {
         Article target = articleRepository.findById(id)
                 .orElseThrow(
