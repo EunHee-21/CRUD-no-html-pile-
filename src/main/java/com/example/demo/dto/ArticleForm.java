@@ -3,14 +3,13 @@ package com.example.demo.dto;
 import com.example.demo.entity.Article;
 import lombok.Data;
 
-@Data // 생성자(디폴트, All), 게터, 세터, toString 등 다 만들어 줌!
+@Data
 public class ArticleForm {
-    private Long id; // id 필드 추가!
+    private Long id;
     private String title;
     private String content;
 
 
-    // 빌더 패턴으로 객체 생성! 생성자의 변형. 입력 순서가 일치하지 않아도 됨.
     public Article toEntity() {
         return Article.builder()
                 .id(null)
@@ -20,13 +19,11 @@ public class ArticleForm {
 
     }
 
-    // 내용을 재작성!
     public void rewrite(String title, String content) {
         this.title = title;
         this.content = content;
     }
 
-    // 생성자: entity 객체를 form으로 변환!
     public ArticleForm(Article entity) {
         this.id = entity.getId();
         this.title = entity.getTitle();
